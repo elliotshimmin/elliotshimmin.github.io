@@ -168,6 +168,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 /* ---------- About blurb ---------- */
 .about-blurb { max-width: 720px; margin: 0 auto; text-align: center; }
 .about-blurb h2 { font-family: var(--serif); font-size: 30px; color: var(--ink); margin-bottom: 18px; }
+.email-img { display: inline-block; margin: 0 auto; max-height: 34px; width: auto; }
 
 /* ---------- Post page ---------- */
 .post-header { text-align: center; padding: 60px 0 30px; }

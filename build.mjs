@@ -33,7 +33,7 @@ const postUrl = (p) => `/post/${p.slug}`;
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 function nav(active) {
-  const items = [['/', 'Home'], ['/about', 'About'], ['/notes', 'Notes']];
+  const items = [['/', 'Home'], ['/about', 'About'], ['/notes', 'Notes'], ['/contact', 'Contact']];
   return items.map(([href, label]) =>
     `<li><a href="${href}"${active === href ? ' class="active"' : ''}>${label}</a></li>`).join('');
 }
@@ -159,6 +159,23 @@ function buildAbout() {
   write('about.html', layout({ title: `About | ${SITE.title}`, active: '/about', body }));
 }
 
+/* ---------- Contact ---------- */
+function buildContact() {
+  const body = `
+<section class="section">
+  <div class="wrap">
+    <div class="about-blurb">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <p>Questions, corrections, or something worth adding to the notes? Drop me a line at the address below.</p>
+      <p style="margin-top:26px;"><img class="email-img" src="/images/email.png" alt="Email address (shown as an image to deter spam)"></p>
+      <p class="meta" style="margin-top:12px;">Type it into your email client — it's an image, so there's nothing here for bots to harvest.</p>
+    </div>
+  </div>
+</section>`;
+  write('contact.html', layout({ title: `Contact | ${SITE.title}`, active: '/contact', body, description: 'Get in touch with Bridewell Place Notes.' }));
+}
+
 /* ---------- Posts ---------- */
 function buildPosts() {
   for (const p of posts) {
@@ -190,5 +207,6 @@ copyAssets();
 buildHome();
 buildNotes();
 buildAbout();
+buildContact();
 buildPosts();
 console.log(`Built ${posts.length} posts + home, notes, about.`);
