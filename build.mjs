@@ -200,7 +200,9 @@ function buildPosts() {
 
 /* ---------- Static assets ---------- */
 function copyAssets() {
+  fs.mkdirSync(path.join(root, OUT), { recursive: true });
   fs.copyFileSync(path.join(root, 'templates/styles.css'), path.join(root, OUT, 'styles.css'));
+  fs.cpSync(path.join(root, 'assets/images'), path.join(root, OUT, 'images'), { recursive: true });
 }
 
 copyAssets();
