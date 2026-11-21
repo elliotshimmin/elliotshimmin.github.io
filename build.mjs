@@ -196,6 +196,11 @@ function buildPosts() {
   </div>
 </article>`;
     write(`post/${p.slug}.html`, layout({ title: `${p.title} | ${SITE.title}`, active: '/notes', body, description: p.excerpt }));
+    // Old slugs keep working: tiny redirect page to the current URL.
+    for (const old of p.redirectFrom || []) {
+      const to = postUrl(p);
+      write(`post/${old}.html`, `<!doctype html><meta charset="utf-8"><title>Redirecting…</title><link rel="canonical" href="${to}"><meta http-equiv="refresh" content="0; url=${to}"><a href="${to}">${esc(p.title)}</a>\n`);
+    }
   }
 }
 
