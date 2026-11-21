@@ -166,7 +166,6 @@ function buildContact() {
 <section class="section">
   <div class="wrap">
     <div class="about-blurb">
-      <p class="eyebrow">Contact</p>
       <h2>Get in touch</h2>
       <p>Questions, corrections, or something worth adding to the notes? Drop me a line at the address below.</p>
       <p style="margin-top:26px;"><img class="email-img" src="/images/email.png" alt="Email address (shown as an image to deter spam)"></p>
